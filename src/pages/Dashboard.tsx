@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from 'react';
-import { useAuth } from '@/contexts/AuthContext';
+import { useAuth } from '@/hooks/useAuth';
 import { Button } from "@/components/ui/button";
 import { useNavigate } from 'react-router-dom';
 
@@ -22,9 +22,9 @@ export default function DashboardPage() {
         console.log(user)
     }, [user, isLoading, navigate]);
 
-    if (isLoading || user === null) {
-        return null;
-    }
+    // if (isLoading || user === null) {
+    //     return null;
+    // }
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -33,11 +33,12 @@ export default function DashboardPage() {
         navigate('/');
     };
 
-    const membership = user.userMembership;
+    // const membership = user.userMembership;
 
     return(
         <>
-            <h1 className='flex justify-center text-4xl font-extrabold'>Dashboard</h1>
+            <h1 className='flex justify-center text-4xl font-extrabold my-20'>Dashboard</h1>
+            {/* <h1 className='flex justify-center text-4xl font-extrabold'>Dashboard</h1>
             <p className='text-blue-800 font-medium text-2xl'>
                 User Email : {user?.email}
             </p>
@@ -49,7 +50,7 @@ export default function DashboardPage() {
                 <Button disabled={loading} type="submit" className="bg-red-600 hover:cursor-pointer hover:bg-red-500">
                     Logout
                 </Button>
-            </form>
+            </form> */}
         </>
     )
 }

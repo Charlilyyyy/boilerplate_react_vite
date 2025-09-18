@@ -1,15 +1,11 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import type { ReactNode } from 'react';
 import { jwtDecode } from 'jwt-decode';
 import { AuthContext } from '@/interface/authContentInstance';
 import type { User } from '@/interface/authContentInstance';
+import type { AuthProviderProps } from '@/interface/authProviderProps';
 
-// Define the props for the AuthProvider component
-interface AuthProviderProps {
-  children: ReactNode;
-}
 
 function normalizeUser(raw: any): User {
   const legacyMembership = raw.user_membership;
